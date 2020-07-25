@@ -161,4 +161,17 @@ public class PointsCalculatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void should_return_740_when_given_amount_6400_by_shoppingbystages() {
+        //given
+        BigDecimal expected = new BigDecimal("740");
+        BigDecimal amount = new BigDecimal("6400");
+        Consumption consumption01 = new Consumption(PaymentType.SHOPPINGBYSTAGES, amount);
+        //when
+        PointsCalculator pointsCalculator = new PointsCalculator();
+        BigDecimal actual = pointsCalculator.calculate(consumption01);
+        //then
+        Assert.assertEquals(expected, actual);
+    }
+
 }
