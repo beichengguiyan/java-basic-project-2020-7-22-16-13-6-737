@@ -61,6 +61,17 @@ public class PointsCalculatorTest {
         Assert.assertEquals(expected, actual);
     }
 
-
+    @Test
+    public void should_return_1_when_given_amount_25_by_wechat(){
+        //given
+        BigDecimal expected = new BigDecimal("1");
+        BigDecimal amount = new BigDecimal("25");
+        Consumption consumption01= new Consumption(PaymentType.WECHAT,amount);
+        //when
+        PointsCalculator pointsCalculator = new PointsCalculator();
+        BigDecimal actual = pointsCalculator.calculate(consumption01);
+        //then
+        Assert.assertEquals(expected, actual);
+    }
 
 }
