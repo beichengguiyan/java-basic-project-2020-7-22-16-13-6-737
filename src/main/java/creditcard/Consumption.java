@@ -13,4 +13,8 @@ public class Consumption {
     public BigDecimal getAmount() {
         return amount;
     }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
 }
