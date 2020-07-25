@@ -110,4 +110,17 @@ public class PointsCalculatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void should_return_30_when_given_amount_208_by_creditcardexpress() {
+        //given
+        BigDecimal expected = new BigDecimal("30");
+        BigDecimal amount = new BigDecimal("208");
+        Consumption consumption01 = new Consumption(PaymentType.CREDITCARDEXPRESS, amount);
+        //when
+        PointsCalculator pointsCalculator = new PointsCalculator();
+        BigDecimal actual = pointsCalculator.calculate(consumption01);
+        //then
+        Assert.assertEquals(expected, actual);
+    }
+
 }
