@@ -174,4 +174,44 @@ public class PointsCalculatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void should_return_1122_when_given_amount_by_mix_four() {
+        //given
+        BigDecimal expected = new BigDecimal("1122");
+        User user = new User();
+        PointsCalculator pointsCalculator = new PointsCalculator();
+        PaymentType[] paymentType = {
+                PaymentType.WECHAT,
+                PaymentType.WECHAT,
+                PaymentType.POS,
+                PaymentType.WECHAT,
+                PaymentType.WECHAT,
+                PaymentType.POS,
+                PaymentType.CREDITCARDEXPRESS,
+                PaymentType.CREDITCARDEXPRESS,
+                PaymentType.SHOPPINGBYSTAGES};
+        int[] inputAmounts = {
+                25,
+                18,
+                108,
+                10,
+                22,
+                208,
+                208,
+                2208,
+                6400};
+        //when
+        for (int i = 0; i < inputAmounts.length; i++) {
+            Consumption consumption = new Consumption(paymentType[i], new BigDecimal(inputAmounts[i]));
+            BigDecimal points = pointsCalculator.calculate(consumption);
+            consumption.setPoints(points);
+            user.addConsumeRecord(consumption);
+        }
+
+        pointsCalculator.totalPointsCalculate(user);
+        BigDecimal actual = user.getTotalPoints();
+        //then
+        Assert.assertEquals(expected, actual);
+    }
+
 }
