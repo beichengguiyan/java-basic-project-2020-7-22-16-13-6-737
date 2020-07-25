@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public class PointsCalculatorTest {
     @Test
-    public void should_return_basic_tax(){
+    public void should_return_0_when_given_amout_8(){
         //given
         BigDecimal expected = new BigDecimal("0");
         BigDecimal amount = new BigDecimal("8");

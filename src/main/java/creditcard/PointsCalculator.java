@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class PointsCalculator {
     public BigDecimal calculate(Consumption consumption) {
-        return new BigDecimal("0");
+        BigDecimal result = consumption.getAmount().divide(new  BigDecimal("10")).setScale(0, BigDecimal.ROUND_DOWN);
+        return result;
     }
 }

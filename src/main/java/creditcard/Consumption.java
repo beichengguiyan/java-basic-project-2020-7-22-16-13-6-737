@@ -9,4 +9,8 @@ public class Consumption {
         this.paymentType = paymentType;
         this.amount = amount;
     }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
 }
